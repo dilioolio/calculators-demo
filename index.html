@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketing Calculators</title>
+  </head>
+  <body>
+    <div class="fixed top-0 left-0 right-0 bg-white shadow-md p-4 z-50">
+      <div class="max-w-7xl mx-auto flex gap-4 overflow-x-auto pb-2">
+        <button onclick="switchCalculator('cpc')" class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 whitespace-nowrap">CPC Calculator</button>
+        <button onclick="switchCalculator('cpa')" class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 whitespace-nowrap">CPA Calculator</button>
+        <button onclick="switchCalculator('revenue')" class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 whitespace-nowrap">Ad Revenue Calculator</button>
+        <button onclick="switchCalculator('inventory')" class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 whitespace-nowrap">Inventory Calculator</button>
+        <button onclick="switchCalculator('roi')" class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 whitespace-nowrap">ROI Calculator</button>
+        <button onclick="switchCalculator('roas')" class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 whitespace-nowrap">ROAS Calculator</button>
+      </div>
+    </div>
+    <div id="root" data-calculator-type="cpc" data-theme-color="blue" class="pt-20"></div>
+    <script>
+      function switchCalculator(type) {
+        const root = document.getElementById('root');
+        root.setAttribute('data-calculator-type', type);
+        // Force React to re-render
+        const event = new Event('calculator-switch');
+        window.dispatchEvent(event);
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
